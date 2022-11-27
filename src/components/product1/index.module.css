@@ -1,0 +1,103 @@
+.conteiner{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    margin: 20px;
+    justify-items: center;
+}
+.conteinerProducts{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-bottom: 20px;
+    margin: 4px;
+    margin-bottom: 40px;
+    
+   
+    width: 160px;
+    height: 200px;
+
+
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
+
+.imgProduct{
+width: 160px;
+height: 120px;
+border-radius: 10px;
+
+
+
+/* Inside auto layout */
+
+flex: none;
+order: 0;
+flex-grow: 0;
+}
+.titleProduct{
+width: 116px;
+height: 18px;
+
+font-family: 'Lilita One';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 18px;
+padding-left: 10px;
+padding-top: 10px;
+
+/* Color Secundario */
+
+color: #5171A5;
+
+
+/* Inside auto layout */
+
+flex: none;
+order: 0;
+flex-grow: 0;
+}
+
+.priceProduct{
+    
+width: 118px;
+height: 18px;
+
+font-family: 'Lilita One';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 18px;
+padding: 12px;
+margin-top: 12px;
+
+/* Color Secundario */
+
+color: #5171A5;
+
+
+/* Inside auto layout */
+
+flex: none;
+order: 0;
+flex-grow: 1;
+}
+.conteinerProducts button{
+position:relative;
+left: 120px;
+bottom:28px;
+width: 30px;
+height: 30px;
+background-image: url('../../img/mas.png');
+background-repeat: no-repeat;
+background-position: center;
+border: none;
+background-size: 100%;
+/* Color Secundario
+
+Color Secundario
+*/
+border-radius: 100%;
+}

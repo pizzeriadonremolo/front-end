@@ -1,0 +1,16 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  width: auto;
+}
+
+body {
+  background-color: #F1EFDE !important; 
+  padding-bottom: 80px;
+}
+
+
+
+
