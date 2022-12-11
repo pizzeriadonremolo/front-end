@@ -3,6 +3,7 @@
 
   /* Auto layout */
 
+  display: flex;
   display: inline;
   flex-direction: column;
   justify-content: flex-start;
@@ -14,6 +15,7 @@
   height: 10%;
   bottom: 15px;
 }
+
 .footerButton {
   align-items: flex-start;
   padding: 10px 16px;
@@ -53,13 +55,13 @@ Color Secundario
   flex: none;
   order: 0;
   flex-grow: 1;
+  cursor: pointer;
 }
 
 .footerButton span {
   font-family: "Lilita One";
   font-style: normal;
   font-weight: 400;
-  font-size: 25px;
   line-height: 23px;
   margin-right: 15px;
   /* identical to box height */
@@ -111,4 +113,10 @@ Color Secundario
   flex: none;
   order: 0;
   flex-grow: 1;
+
+  cursor: pointer;
+}
+
+.footerConteiner button {
+  font-size: 20px;
 }

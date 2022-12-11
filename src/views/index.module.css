@@ -1,9 +1,8 @@
 .categorias {
-  position: flex;
   width: auto;
   left: 16px;
   top: 125px;
-  margin: 16px;
+  margin: 26px;
 
   font-family: "Lilita One";
   font-style: normal;
@@ -19,7 +18,9 @@
 }
 .conteiner {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(10em, 1fr));
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
   justify-items: center;
 }
 
@@ -83,19 +84,6 @@ Color Secundario
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* position: flex;
-  width: auto;
-  left: 16px;
-  top: 125px;
-  margin: 16px;
-
-  font-family: "Lilita One";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 27px;
-
-  color: #5171a5; */
 }
 
 .viewPurchaseContainer h2 {
@@ -110,8 +98,60 @@ Color Secundario
   justify-content: center;
 }
 
+.cartContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.divCartTitle {
+  display: flex;
+  flex-direction: column;
+}
+
+.cartTitle {
+  margin: 16px;
+  font-family: "Lilita One";
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 27px;
+  text-align: left;
+  color: #5171a5;
+}
+
+@media (max-width: 450px) {
+  .conteiner {
+    grid-template-columns: repeat(auto-fill, minmax(10em, 1fr));
+  }
+
+  .categorias {
+    text-align: left;
+  }
+
+  .divCartTitle {
+    text-align: left;
+  }
+
+  .cartTitle {
+    text-align: left;
+  }
+}
+
 @media (max-width: 400px) {
   .categorias {
     text-align: left;
+  }
+
+  .divCartTitle {
+    text-align: left;
+  }
+
+  .cartTitle {
+    text-align: left;
+  }
+
+  .conteiner {
+    grid-template-columns: repeat(auto-fill, minmax(10em, 1fr));
   }
 }
