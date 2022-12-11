@@ -1,120 +1,114 @@
-.footerConteiner{
-    /* Boton/pedido/Activo */
+.footerConteiner {
+  /* Boton/pedido/Activo */
 
+  /* Auto layout */
 
-/* Auto layout */
+  display: inline;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 10px;
 
-display: inline;
-flex-direction: column;
-justify-content:flex-start;
-align-items: flex-start;
-padding: 10px;
-
-
-position: fixed;
-width: 100%;
-height: 10%;
-bottom:15px ;
-
+  position: fixed;
+  width: 100%;
+  height: 10%;
+  bottom: 15px;
 }
-.footerButton{
-align-items: flex-start;
-padding: 10px 16px;
-gap: 23px;
-border-bottom: none;
-border: 0.5px solid #5171A5;
+.footerButton {
+  align-items: flex-start;
+  padding: 10px 16px;
+  gap: 23px;
+  border-bottom: none;
+  border: 0.5px solid #5171a5;
 
-width: 80%;
-height: 55px;
+  width: 80%;
+  height: 55px;
 
-/* Color Secundario
+  /* Color Secundario
 
 Color Secundario
 */
-background: #5171A5;
-border-radius: 30px 0px 0px 30px;
+  background: #5171a5;
+  border-radius: 30px 0px 0px 30px;
 
-/* Inside auto layout */
+  /* Inside auto layout */
 
-flex: none;
-order: 0;
-flex-grow: 0;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
 
-font-family: 'Lilita One';
-font-style: normal;
-font-weight: 400;
-font-size: 25px;
-line-height: 23px;
-/* identical to box height */
+  font-family: "Lilita One";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 23px;
+  /* identical to box height */
 
-text-align: center;
+  text-align: center;
 
-color: #FFFFFF;
+  color: #ffffff;
 
+  /* Inside auto layout */
 
-/* Inside auto layout */
-
-flex: none;
-order: 0;
-flex-grow: 1;
+  flex: none;
+  order: 0;
+  flex-grow: 1;
 }
 
-.footerButton span{
-font-family: 'Lilita One';
-font-style: normal;
-font-weight: 400;
-font-size: 25px;
-line-height: 23px;
-margin-right: 15px;
-/* identical to box height */
+.footerButton span {
+  font-family: "Lilita One";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 23px;
+  margin-right: 15px;
+  /* identical to box height */
 
-text-align: center;
+  text-align: center;
 
-color: #FFFFFF;
-
+  color: #ffffff;
 }
 
-.deleteButton{
-    align-items: flex-start;
-    padding: 10px 16px;
-    gap: 23px;
-    border-bottom: none;
-    border: 0.5px solid #ff0000;
-    margin-left: 1%;
-    
-    width: 19%;
-    height: 55px;
-    
-    /* Color Secundario
+.deleteButton {
+  align-items: flex-start;
+  padding: 10px 16px;
+  gap: 23px;
+  border-bottom: none;
+  border: 0.5px solid #ff0000;
+  margin-left: 1%;
+
+  width: 19%;
+  height: 55px;
+
+  /* Color Secundario
     
     Color Secundario
     */
-    background: #ff0000;
-    background-image: url(../../img/table_trash_white.png);
-    background-size: 30px;
-    background-repeat: no-repeat;
-    background-position: center;
-    border-radius: 0px 30px 30px 0px;
-    
-    /* Inside auto layout */
-    
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-    
-    font-weight: 400;
-    font-size: 25px;
-    line-height: 23px;
-    /* identical to box height */
-    
-    text-align: center;
-    
-    color: #ffffff00;
-    
-    
-    /* Inside auto layout */
-    
-    flex: none;
-    order: 0;
-    flex-grow: 1;
+  background: #ff0000;
+  background-image: url(../../img/table_trash_white.png);
+  background-size: 30px;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 0px 30px 30px 0px;
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 23px;
+  /* identical to box height */
+
+  text-align: center;
+
+  color: #ffffff00;
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 0;
+  flex-grow: 1;
 }

@@ -1,79 +1,103 @@
-.categorias{
-    position: flex;
-    width: auto;
-    left: 16px;
-    top: 125px;
-    margin: 16px;
-    
-    font-family: 'Lilita One';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 27px;
-    
-    /* Color Secundario */
-    
-    color: #5171A5;
+.categorias {
+  position: flex;
+  width: auto;
+  left: 16px;
+  top: 125px;
+  margin: 16px;
+
+  font-family: "Lilita One";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 27px;
+
+  /* Color Secundario */
+
+  color: #5171a5;
 }
-.conteiner{
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(10em, 1fr));
-        justify-items: center;
+.conteiner {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(10em, 1fr));
+  justify-items: center;
 }
 
-.inputs{
-display: block;
-margin: 5%;
-margin-bottom:0.5em;
-margin-top:0.5em;
-width: 90%;
-height: 2.4em;
-padding: 5px;
-font-family: 'Lilita One';
-font-style: normal;
-font-weight: 400;
-font-size: 24px;
-line-height: 27px;
-color: #5171A5;
+.inputs {
+  display: block;
+  margin: 5%;
+  margin-bottom: 0.5em;
+  margin-top: 0.5em;
+  width: 90%;
+  height: 2.4em;
+  padding: 5px;
+  font-family: "Lilita One";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 27px;
+  color: #5171a5;
 
-
-background: #FFFFFF;
-/* Color Secundario
+  background: #ffffff;
+  /* Color Secundario
 
 Color Secundario
 */
-border: 2px solid #5171A5;
-border-radius: 10px;
+  border: 2px solid #5171a5;
+  border-radius: 10px;
 }
 
-.textArea{
-display: block;
-margin: 5%;
-margin-bottom:0.5em;
-margin-top:0.5em;
-width: 90%;
-height: 7em;
-padding: 5px;
-font-family: 'Lilita One';
-font-style: normal;
-font-weight: 400;
-font-size: 24px;
-line-height: 27px;
-color: #5171A5;
+.textArea {
+  display: block;
+  margin: 5%;
+  margin-bottom: 0.5em;
+  margin-top: 0.5em;
+  width: 90%;
+  height: 7em;
+  padding: 5px;
+  font-family: "Lilita One";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 27px;
+  color: #5171a5;
 
-
-background: #FFFFFF;
-/* Color Secundario
+  background: #ffffff;
+  /* Color Secundario
 
 Color Secundario
 */
-border: 2px solid #5171A5;
-border-radius: 10px;
+  border: 2px solid #5171a5;
+  border-radius: 10px;
 }
-.lista{
-border-radius: 20px;
-display: block;
-margin: 5%;
-margin-bottom:0.5em;
-margin-top:0.5em;
+.lista {
+  border-radius: 20px;
+  display: block;
+  margin: 5%;
+  margin-bottom: 0.5em;
+  margin-top: 0.5em;
+}
+
+.viewPurchaseContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* position: flex;
+  width: auto;
+  left: 16px;
+  top: 125px;
+  margin: 16px;
+
+  font-family: "Lilita One";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 27px;
+
+  color: #5171a5; */
+}
+
+.viewPurchaseContainer h2 {
+  color: #5171a5;
+  font-family: "Lilita One";
+  text-align: center;
 }
