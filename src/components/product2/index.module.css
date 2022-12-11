@@ -1,99 +1,113 @@
-.conteinerProducts{
-display: flex;
-flex-direction: row;
-padding: 0px;
-margin: 4px;
-width: 95%;
-height: 120px;
-margin-bottom: 20px;
-
-background: #FFFFFF;
-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-border-radius: 10px;
-
-/* Inside auto layout */
-
-flex: none;
-order: 0;
-flex-grow: 0;
+.conteinerProducts {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
-.imgProduct{
-width: 160px;
-height: 120px;
-border-radius: 10px;
+.imgProduct {
+  width: 160px;
+  height: 120px;
+  border-radius: 10px;
 
-
-
-/* Inside auto layout */
-
-flex: none;
-order: 0;
-flex-grow: 0;
+  /* Inside auto layout */
 }
-.titleProduct{
-width: 116px;
-height: 18px;
+.titleProduct {
+  width: 116px;
+  height: 18px;
 
-font-family: 'Lilita One';
-font-style: normal;
-font-weight: 350;
-font-size: 20px;
-line-height: 25px;
-padding-left: 10px;
-padding-top: 10px;
+  font-family: "Lilita One";
+  font-style: normal;
+  font-weight: 350;
+  font-size: 20px;
+  line-height: 25px;
+  padding-left: 10px;
+  padding-top: 10px;
 
-/* Color Secundario */
+  /* Color Secundario */
 
-color: #5171A5;
+  color: #5171a5;
 
+  /* Inside auto layout */
 
-/* Inside auto layout */
-
-flex: none;
-order: 0;
-flex-grow: 0;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
 }
-.priceProduct{
-    
-width: 118px;
-height: 18px;
+.priceProduct {
+  width: 118px;
+  height: 18px;
 
-font-family: 'Lilita One';
-font-style: normal;
-font-weight: 400;
-font-size: 25px;
-line-height: 18px;
-padding: 12px;
-margin-top: 12px;
-position: relative;
-top: 55px;
+  font-family: "Lilita One";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 18px;
+  padding: 12px;
+  margin-top: 12px;
+  position: relative;
+  top: 65px;
+  padding-right: 80px;
 
+  /* Color Secundario */
 
-/* Color Secundario */
+  color: #5171a5;
 
-color: #5171A5;
+  /* Inside auto layout */
 
-
-/* Inside auto layout */
-
-flex: none;
-order: 0;
-flex-grow: 1;
+  flex: none;
+  order: 0;
+  flex-grow: 1;
 }
-.conteinerProducts button{
-    position:relative;
-    right: 40px;
-    top: 74px;
-    width: 30px;
-    height: 30px;
-    background-image: url('../../img/mas.png');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 100%;
-    border: none;
-    /* Color Secundario
+.conteinerProducts button {
+  position: relative;
+  top: 60px;
+  left: -10px;
+  width: 30px;
+  height: 30px;
+  background-image: url("../../img/mas.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+  border: none;
+  cursor: pointer;
+  /* Color Secundario
     
     Color Secundario
     */
-    border-radius: 100%;
+  border-radius: 100%;
+}
+
+.product-2-title-price {
+  width: 100%;
+  max-width: 164px;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-2-price-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.contentProducts {
+  display: flex;
+  margin-bottom: 20px;
+
+  background: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
+
+.divImgProduct {
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 400px) {
+  .conteinerProducts {
+    width: 95%;
+    display: flex;
+    justify-content: center;
+    margin: 0px 10px 10px auto;
+  }
 }
