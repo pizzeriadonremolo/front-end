@@ -1,4 +1,4 @@
-#qa
+#QA
 name: Deploy qa site on push
 on: 
   push:
