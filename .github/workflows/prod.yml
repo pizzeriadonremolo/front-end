@@ -1,4 +1,4 @@
-#prod
+#Prod
 name: Deploy prod site on push
 on: 
   push:
