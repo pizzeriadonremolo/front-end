@@ -3,7 +3,7 @@ name: Deploy prod site on push
 on: 
   push:
     branches: 
-      - main
+      - master
       
 jobs:
   web-deploy:
