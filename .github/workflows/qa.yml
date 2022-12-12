@@ -24,7 +24,7 @@ jobs:
       run: npm install
 
     - name: Build Project
-      run: CI=false npm run build
+      run: CI= npm run build
       
     - name: Create SSH key
       run: |
