@@ -1,0 +1,36 @@
+#dev
+name: Deploy qa site on push
+on: 
+  push:
+    branches: 
+      - qa
+      
+jobs:
+  web-deploy:
+
+    name: Deploy React App Dev
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Get latest code
+      uses: actions/checkout@v2.3.2
+
+    - name: Use Node.js 16 LTS
+      uses: actions/setup-node@v2
+      with:
+        node-version: '16'
+      
+    - name: Install NPM Modules
+      run: npm install
+
+    - name: Build Project
+      run: npm run build
+      
+    - name: Create SSH key
+      run: |
+          install -m 600 -D /dev/null ~/.ssh/id_rsa
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          ssh-keyscan -H ${{ secrets.SSH_HOST }} > ~/.ssh/known_hosts
+          
+    - name: Deploy with rsync
+      run: rsync -rav --delete build/ ubuntu@${{ secrets.SSH_HOST }}:/var/www/qa.donremolo.site/public_html/
