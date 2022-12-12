@@ -17,6 +17,7 @@
   order: 0;
   flex-grow: 0;
 }
+
 .imgProduct {
   width: 160px;
   height: 120px;
@@ -29,15 +30,18 @@
   order: 0;
   flex-grow: 0;
 }
+
 .data {
   width: 100%;
   display: block;
 }
+
 .top {
   display: flex;
   justify-content: space-between;
   width: 99%;
 }
+
 .count {
   width: 100%;
   display: block;
@@ -66,6 +70,7 @@
   order: 0;
   flex-grow: 0;
 }
+
 .priceProduct {
   width: 118px;
   height: 18px;
@@ -99,7 +104,9 @@
   border: none;
   position: relative;
   top: 5px;
+  cursor: pointer;
 }
+
 .span {
   width: 18px;
   height: 18px;
@@ -116,6 +123,7 @@
   border: 3px solid #5171a5;
   border-radius: 20px;
 }
+
 .mas {
   width: 30px;
   height: 30px;
@@ -127,6 +135,7 @@
   border: none;
   position: relative;
   top: 5px;
+  cursor: pointer;
 }
 .delete {
   width: 30px;
@@ -138,8 +147,8 @@
   background-size: 100%;
   border: none;
   position: relative;
-
   top: 5px;
+  cursor: pointer;
 }
 
 @media (max-width: 400px) {
