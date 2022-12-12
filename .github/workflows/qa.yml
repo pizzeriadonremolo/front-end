@@ -1,5 +1,5 @@
 #-QA-
-name: Deploy qa site on push
+name: Deploy QA site on push
 on: 
   push:
     branches: 
