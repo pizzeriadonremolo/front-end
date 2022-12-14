@@ -19,7 +19,7 @@ const Home = () => {
     <>
       <Navbar />
       <div>
-        <h2 className={style.categorias}>Recomendaciones</h2>
+        <h2 className='subtitle'>Recomendaciones</h2>
       </div>
       <div className={style.conteiner}>
         {productos !== null ? (

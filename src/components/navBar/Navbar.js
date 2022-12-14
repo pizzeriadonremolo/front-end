@@ -8,7 +8,7 @@ const Navbar = () => {
 
   return(
     <>
-    <h2 className={style.categorias}>Categorias</h2>
+    <h2 className='subtitle'>Categorias</h2>
     <div className={style.container}>
    { categories.map(e =>(
      <Category category={e} key={e} />

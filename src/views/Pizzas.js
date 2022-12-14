@@ -17,7 +17,7 @@ const Pizzas = () => {
     <>
       <Navbar category="Pizzas" />
       <div className={style.categoriasContainer}>
-        <h2 className={style.categorias}>Pizzas</h2>
+        <h2 className='subtitle'>Pizzas</h2>
         {pizzasState !== null ? (
           pizzasState.map((producto) => (
             <Products2 product={producto} key={producto.id} />
