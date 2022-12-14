@@ -174,7 +174,7 @@
 
 @media (max-width: 400px) {
   .cartButtons {
-    /* position: relative; */
+    position: relative;
     /* margin-right: 20px; */
   }
 

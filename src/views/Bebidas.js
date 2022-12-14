@@ -16,7 +16,7 @@ const Bebidas = () => {
   return (
     <>
       <Navbar category="Bebidas" />
-      <h2 className={style.categorias}>Bebidas</h2>
+      <h2 className="subtitle">Bebidas</h2>
       <div className={style.conteiner}>
         {bebidasState !== null ? (
           bebidasState.map((producto) => (
