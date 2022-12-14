@@ -29,15 +29,17 @@ const Products3 = ({ product }) => {
             <span className={style.priceProduct}>
               ${product.price * product.cartQuantity}
             </span>
-            <button
-              className={style.menos}
-              onClick={() => dispatch(decreaseCart(product))}
-            />
-            <span className={style.span}>{product.cartQuantity}</span>
-            <button
-              className={style.mas}
-              onClick={() => dispatch(addToCart(product))}
-            />
+            <div className={style.btnCount}>
+              <button
+                className={style.menos}
+                onClick={() => dispatch(decreaseCart(product))}
+              />
+              <span className={style.span}>{product.cartQuantity}</span>
+              <button
+                className={style.mas}
+                onClick={() => dispatch(addToCart(product))}
+              />
+            </div>
           </div>
         </div>
       </div>

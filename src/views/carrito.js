@@ -18,7 +18,7 @@ export default function Carrito() {
           <Products3 product={producto} key={producto.id} />
         ))}
         {cart.cartTotalAmount ? (
-          <Footer to={() => navigate("/checkout")} text={"Confirmar Pedido"} />
+          <Footer to={() => navigate("/checkout")} text={"Pagar"} />
         ) : (
           <Footer to={() => navigate("/")} text={"Agregar Productos"} />
         )}

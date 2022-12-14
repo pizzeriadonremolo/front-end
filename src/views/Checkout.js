@@ -163,7 +163,7 @@ const Checkout = () => {
             onChange={handleInputChange}
           />
           {cart.cartTotalAmount ? (
-            <Footer to={() => console.log("flama")} text="Confirmar pedido" />
+            <Footer to={() => console.log("flama")} text="Pagar" />
           ) : (
             <Footer to={() => navigate("/")} text={"Agregar Productos"} />
           )}

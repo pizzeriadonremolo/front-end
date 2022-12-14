@@ -16,12 +16,12 @@
 
   color: #5171a5;
 }
+
 .conteiner {
-  display: grid;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(4, 1fr);
-  justify-items: center;
+  /* display: flex; */
 }
 
 .inputs {
@@ -120,9 +120,21 @@ Color Secundario
   color: #5171a5;
 }
 
+@media (max-width: 912px) {
+  .conteiner {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 540px) {
+  .conteiner {
+    flex-direction: column;
+  }
+}
+
 @media (max-width: 450px) {
   .conteiner {
-    grid-template-columns: repeat(auto-fill, minmax(10em, 1fr));
+    flex-direction: column;
   }
 
   .categorias {
@@ -153,5 +165,12 @@ Color Secundario
 
   .conteiner {
     grid-template-columns: repeat(auto-fill, minmax(10em, 1fr));
+  }
+}
+
+@media (max-width: 280px) {
+  .conteiner {
+    flex-direction: column;
+    justify-content: center;
   }
 }

@@ -1,6 +1,5 @@
 .conteinerProducts {
   display: flex;
-  flex-direction: row;
   padding: 0px;
   margin: 4px;
   width: 95%;
@@ -108,16 +107,24 @@
 }
 
 .span {
-  width: 18px;
-  height: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 10px;
+  /* width: 18px; */
+  height: 30px;
+  /* height: 18px; */
 
   font-family: "Lilita One";
   font-style: normal;
   font-weight: 400;
   font-size: 25px;
   line-height: 18px;
-  padding-left: 17px;
-  padding-right: 17px;
+  padding-left: 16px;
+  /* padding-left: 17px; */
+  padding-right: 16px;
+  /* padding-right: 17px; */
   margin: 2px;
   /* margin: 12px; */
   border: 3px solid #5171a5;
@@ -137,6 +144,7 @@
   top: 5px;
   cursor: pointer;
 }
+
 .delete {
   width: 30px;
   height: 30px;
@@ -151,9 +159,23 @@
   cursor: pointer;
 }
 
+.cartButtons {
+  display: flex;
+  align-items: center;
+}
+
+.btnCount {
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
+  /* margin-left: -65px; */
+  padding-right: 10px;
+}
+
 @media (max-width: 400px) {
   .cartButtons {
-    position: relative;
+    /* position: relative; */
+    /* margin-right: 20px; */
   }
 
   .priceProduct {
@@ -161,9 +183,41 @@
   }
 }
 
+@media (max-width: 375px) {
+  .span {
+    width: 28px;
+    height: 18px;
+    padding-left: 6px;
+    padding-right: 6px;
+    font-size: 18px;
+    margin: 6px;
+  }
+
+  /* .span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15px;
+    height: 35px;
+    padding-left: 16px;
+    padding-right: 16px;
+    font-size: 18px;
+    margin: 6px;
+  } */
+}
+
 @media (max-width: 360px) {
   .cartButtons {
-    width: 120px;
+    width: 150px;
+  }
+
+  .btnCount {
+    margin-left: -65px;
+    align-items: center;
+  }
+
+  .delete {
+    margin-right: 10px;
   }
 
   .menos {
@@ -179,11 +233,12 @@
   }
 
   .span {
-    width: 6px;
-    height: 6px;
+    width: 28px;
+    height: 18px;
     padding-left: 6px;
     padding-right: 6px;
     font-size: 18px;
+    margin: 6px;
   }
 
   .priceProduct {
@@ -194,6 +249,10 @@
 @media (max-width: 280px) {
   .cartButtons {
     width: 120px;
+  }
+
+  .btnCount {
+    margin-left: -90px;
   }
 
   .menos {
