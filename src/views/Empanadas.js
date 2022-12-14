@@ -16,10 +16,9 @@ const Empanadas = () => {
 
   return (
     <>
-      <Navbar category="Empanadas" />
+      <Navbar />
       <div>
         <h2 className="subtitle">Empanadas</h2>
-        <div className={style.conteiner}>
           {empanadasState !== null ? (
             empanadasState.map((producto) => (
               <Products2 product={producto} key={producto.id} />
@@ -27,7 +26,6 @@ const Empanadas = () => {
           ) : (
             <Loader />
           )}
-        </div>
       </div>
       <Footer to={() => navigate("/carrito")} text={"Ver mi pedido"} />
     </>

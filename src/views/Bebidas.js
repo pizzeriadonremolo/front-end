@@ -15,9 +15,9 @@ const Bebidas = () => {
   }, []);
   return (
     <>
-      <Navbar category="Bebidas" />
+      <Navbar />
+      <div>
       <h2 className="subtitle">Bebidas</h2>
-      <div className={style.conteiner}>
         {bebidasState !== null ? (
           bebidasState.map((producto) => (
             <Products2 product={producto} key={producto.id} />

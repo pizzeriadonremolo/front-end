@@ -16,7 +16,7 @@ const Postres = () => {
 
   return (
     <>
-      <Navbar category="Postres" />
+      <Navbar />
       <div>
         <h2 className="subtitle">Postres</h2>
         {postresState !== null ? (

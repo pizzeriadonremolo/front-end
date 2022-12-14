@@ -106,10 +106,10 @@ const Checkout = () => {
   return (
     <>
       <div>
-        <h2 className={style.categorias}>Checkout</h2>
+        <h2 className='subtitle'>Checkout</h2>
         <ul className={style.lista}>
           {cart.cartItems.map((product) => (
-            <li className={style.categorias} key={product.id}>
+            <li  className='subtitle' key={product.id}>
               {product.cartQuantity}-{product.title}: $
               {product.cartQuantity * product.price}
             </li>
