@@ -14,8 +14,8 @@ const Products = ({ product }) => {
         alt={`foto de ${product.title}`}
       />
       <h3 className={style.titleProduct}>{product.title}</h3>
-      <span className={style.priceProduct}>${product.price}</span>
       <div>
+      <span className={style.priceProduct}>${product.price}</span>
         <button
           onClick={() => {
             dispatch(addToCart(product));

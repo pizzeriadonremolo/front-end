@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Footer from "../components/footer/footer.js";
-import Loader from "../components/loader/loader.js";
-import Navbar from "../components/navBar/Navbar.js";
-import Products from "../components/product1/product";
-import { recommended } from "../features/products";
+import Footer from "../../components/footer/footer.js";
+import Loader from "../../components/loader/loader.js";
+import Navbar from "../../components/navBar/Navbar.js";
+import Products from "../../components/product1/product";
+import { recommended } from "../../features/products";
 import style from "./index.module.css";
 
 const Home = () => {

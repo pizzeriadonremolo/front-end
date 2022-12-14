@@ -1,16 +1,7 @@
-.conteiner {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  margin: 20px;
-  justify-items: center;
-}
 .conteinerProducts {
   display: flex;
   flex-direction: column;
-  padding-bottom: 20px;
   margin: 20px auto;
-  margin-bottom: 40px;
 
   width: 160px;
   height: 200px;
@@ -33,7 +24,7 @@
 }
 .titleProduct {
   width: 116px;
-  height: 18px;
+  height: auto;
 
   font-family: "Lilita One";
   font-style: normal;
@@ -55,32 +46,29 @@
 }
 
 .priceProduct {
-  width: 118px;
-  height: 18px;
-
   font-family: "Lilita One";
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 18px;
-  padding: 12px;
-  margin-top: 16px;
-  /* margin-top: 12px; */
-
-  /* Color Secundario */
-
+  justify-items: center;
+  margin-top: 5%;
+  margin-left: 5%;
   color: #5171a5;
-
-  /* Inside auto layout */
-
   flex: none;
   order: 0;
   flex-grow: 1;
 }
+.conteinerProducts div{
+  display: flex;
+  width: 100%;
+  height: 50px;
+  justify-items: center;
+  justify-content: end;
+}
 .conteinerProducts button {
   position: relative;
-  left: 120px;
-  bottom: 28px;
+  right: 0.5em;
   width: 30px;
   height: 30px;
   background-image: url("../../img/mas.png");
@@ -88,19 +76,29 @@
   background-position: center;
   border: none;
   background-size: 100%;
-  margin-top: 10px;
-  /* Color Secundario
-
-Color Secundario
-*/
   border-radius: 100%;
+  margin-bottom: 12px;
 }
 
-@media (max-width: 350px) {
-  .conteiner {
-    display: block;
-    width: 90%;
-    justify-content: center;
-    justify-items: center;
+@media (max-width: 330px) {
+  .conteinerProducts {
+    width: 280px;
+    height: 340px;
   }
+  .imgProduct {
+    width: 280px;
+    height: 230px;
+}
+.titleProduct{
+  width: 70%;
+  font-size: 30px;
+}
+.priceProduct{
+  font-size: 25px;
+}
+.conteinerProducts button{
+  width: 50px;
+  right: 1em;
+  height: 50px;
+}
 }

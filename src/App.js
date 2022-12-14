@@ -1,6 +1,6 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-import Home from "./views/Home";
+import Home from "./views/Home/Home";
 import Pizzas from "./views/Pizzas";
 import Empanadas from "./views/Empanadas";
 import Bebidas from "./views/Bebidas";

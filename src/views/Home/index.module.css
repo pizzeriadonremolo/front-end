@@ -1,0 +1,3 @@
+.conteiner {
+    grid-template-columns: repeat(auto-fill, minmax(10em, 1fr));
+  }
