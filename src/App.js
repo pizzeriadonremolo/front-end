@@ -11,6 +11,7 @@ import Carrito from "./views/carrito";
 import View from "./views/view";
 
 function App() {
+  
 
   return (
     <div >
