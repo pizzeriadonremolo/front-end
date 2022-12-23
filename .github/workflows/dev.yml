@@ -34,5 +34,5 @@ jobs:
           
     - name: Deploy with rsync
       run: |
+          echo "${{ secrets.OPT_SRV }}" > build/.htaccess
           rsync -rav --delete build/ ubuntu@${{ secrets.SSH_HOST }}:/var/www/dev.donremolo.site/public_html/
-          echo "${{ secrets.OPT_SRV }}" > /var/www/dev.donremolo.site/public_html/.htaccess
