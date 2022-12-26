@@ -15,6 +15,10 @@ jobs:
     - name: Get latest code
       uses: actions/checkout@v2.3.2
 
+    - name: copy .env
+      run: |
+          echo 'REACT_APP_BACKEND_URL = "http://qa.donremolo.site:8000"' > .env
+
     - name: Use Node.js 16 LTS
       uses: actions/setup-node@v2
       with:
