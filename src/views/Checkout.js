@@ -3,11 +3,9 @@ import style from "./index.module.css";
 import { useSelector } from "react-redux";
 import Footer from "../components/footer/footer";
 import { useNavigate } from "react-router-dom";
-import { helpHttp } from "../features/httpServer";
 import { useDispatch } from "react-redux";
 import { clearCart } from "../features/cartAppSlice.js";
-
-const api = helpHttp();
+import api from '../features/httpServer'
 
 const Checkout = () => {
   const dispatch = useDispatch();
@@ -31,17 +29,6 @@ const Checkout = () => {
 
   const [pago, setPago] = useState(null);
 
-  useEffect(() => {
-    fetch("https://api.ipify.org?format=json")
-      .then((response) => response.json())
-      .then((data) =>
-        setOrder({
-          ...orderData,
-          clientIp: data.ip,
-        })
-      )
-      .catch((err) => console.log("me rompi"));
-  }, []);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -73,16 +60,12 @@ const Checkout = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const options = {
-      body: orderData,
-      headers: { "content-type": "application/json" },
-    };
     const validate = Object.keys(error);
 
     if (validate.length)
       return window.alert("Complete los campos obligatorios");
 
-    api.post("/checkout", options).then((res) => {
+    api.post("/checkout", orderData).then((res) => {
       if (!res.err) {
         setOrder({
           order: "",
@@ -94,9 +77,10 @@ const Checkout = () => {
           clientIp: "",
         });
         dispatch(clearCart());
-        window.location.href = res.url;
+  
+        window.location.href = res.data.url;
+        
       }
-      Window.headers = { authorization: res.jwt };
     });
   };
   const handleInputPago = (e) => {

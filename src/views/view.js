@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { helpHttp } from "../features/httpServer";
+import  api  from "../features/httpServer";
 import "./view.css";
 import Loader from "../components/loader/loader";
-
-const api = helpHttp();
-
 const View = () => {
   const { id } = useParams();
 
