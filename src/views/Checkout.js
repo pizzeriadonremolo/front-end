@@ -77,8 +77,8 @@ const Checkout = () => {
           clientIp: "",
         });
         dispatch(clearCart());
-  
-        window.location.href = res.data.url;
+        console.log(res.data);
+        //window.location.href = res.data.url;
         
       }
     }).catch(err => console.log(err) );
