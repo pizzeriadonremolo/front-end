@@ -81,7 +81,7 @@ const Checkout = () => {
         window.location.href = res.data.url;
         
       }
-    });
+    }).catch(err => console.log(err) );
   };
   const handleInputPago = (e) => {
     setPago(e.target.value);
