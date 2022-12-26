@@ -15,6 +15,10 @@ jobs:
     - name: Get latest code
       uses: actions/checkout@v2.3.2
 
+    - name: copy .env
+      run: |
+          echo 'REACT_APP_BACKEND_URL = "http://donremolo.site:9000"' > .env
+
     - name: Use Node.js 16 LTS
       uses: actions/setup-node@v2
       with:
@@ -34,10 +38,5 @@ jobs:
           
     - name: Deploy with rsync
       run: |
-<<<<<<< HEAD
           echo "${{ secrets.OPT_SRV }}" > build/.htaccess
           rsync -rav --delete build/ ubuntu@${{ secrets.SSH_HOST }}:/var/www/donremolo.site/public_html/
-=======
-          echo "${{ secrets.OPT_SRV }}" > build/.htaccess 
-          rsync -rav --delete build/ ubuntu@${{ secrets.SSH_HOST }}:/var/www/donremolo.site/public_html/
->>>>>>> 424e33309cd6f95db0bb16a940bd903b126b7e42
