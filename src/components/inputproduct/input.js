@@ -9,7 +9,7 @@ export default function Input({ product }) {
       var max = 4;
       break;
     case "Postres":
-      var max = 12;
+      var max = 14;
       break;
     case "Bebidas":
       var max = 8;
