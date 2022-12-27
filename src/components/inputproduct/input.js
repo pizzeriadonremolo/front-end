@@ -6,7 +6,7 @@ import style from "./index.module.css";
 export default function Input({ product }) {
   switch (product.category) {
     case "Pizzas":
-      var max = 8;
+      var max = 4;
       break;
     case "Postres":
       var max = 12;
