@@ -1,9 +1,9 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import Footer from "../components/footer/footer";
-import Products3 from "../components/product3/products3";
 import style from "./index.module.css";
 import { useSelector } from "react-redux";
+import Products2 from "../components/product2/products2";
 
 export default function Carrito() {
   const navigate = useNavigate();
@@ -15,7 +15,7 @@ export default function Carrito() {
           <h2 className={style.cartTitle}>Carrito</h2>
         </div>
         {cart.cartItems.map((producto) => (
-          <Products3 product={producto} key={producto.id} />
+          <Products2 product={producto} key={producto.id} />
         ))}
         {cart.cartTotalAmount ? (
           <Footer to={() => navigate("/checkout")} text={"Pagar"} />

@@ -1,0 +1,28 @@
+.input{
+    color: var(--font-color-blue);
+    border-radius: 15px;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 0 13px;
+    max-width: 50px;
+    margin-top: 12px;
+    margin-left: 15px;
+    font-family: "Lilita One";
+    width: auto;
+    height: 35px;
+    border: 3px solid var(--font-color-blue);
+}
+.delete {
+    width: 25px;
+    height: 25px;
+    border-radius: 100%;
+    background-image: url("../../img/Frame\ 17.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+    border: none;
+    position: absolute;
+    top: 5px;
+    right: -10px;
+    cursor: pointer;
+  }

@@ -38,6 +38,7 @@ const cartSlice = createSlice({
       }
     },
     removeFromCart(state, action) {
+      console.log('ssada');
       const nextCartItems = state.cartItems.filter(
         (cartItem) => cartItem.id !== action.payload.id
       );

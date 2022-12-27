@@ -3,16 +3,28 @@
   display: flex;
   justify-content: center;
 }
+
+.contentProducts {
+  display: flex;
+  margin-bottom: 20px;
+  width: 100%;
+
+  background: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
+
 .imgProduct {
   width: 160px;
   height: 120px;
   border-radius: 10px;
-
-  /* Inside auto layout */
+}
+.conteinerData{
+  width: 45%;
+  position: relative;
 }
 .titleProduct {
   width: 116px;
-  height: 18px;
 
   font-family: "Lilita One";
   font-style: normal;
@@ -22,15 +34,12 @@
   padding-left: 10px;
   padding-top: 10px;
 
-  /* Color Secundario */
+ 
 
   color: #5171a5;
 
-  /* Inside auto layout */
 
-  flex: none;
-  order: 0;
-  flex-grow: 0;
+
 }
 .priceProduct {
   width: 118px;
@@ -57,53 +66,28 @@
   order: 0;
   flex-grow: 1;
 }
-
-.conteinerProducts button {
-  position: relative;
-  top: 60px;
-  left: -10px;
-  width: 30px;
+.button {
+  display: grid;
+  grid-template-columns: 40% 60%;
   height: 30px;
-  background-image: url("../../img/mas.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 100%;
-  border: none;
-  cursor: pointer;
-  /* Color Secundario
-    
-    Color Secundario
-    */
-  border-radius: 100%;
-}
-
-.product-2-title-price {
+  position: absolute;
+  bottom: 30px;
+  gap: 20px;
   width: 100%;
-  max-width: 164px;
-  display: flex;
-  flex-direction: column;
-}
-
-.product-2-price-btn {
-  display: flex;
-  justify-content: space-between;
   align-items: center;
 }
-
-.contentProducts {
-  display: flex;
-  margin-bottom: 20px;
-
-  background: #ffffff;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
+.priceProduct{
+  position: static;
+  margin: 0;
+  margin-bottom: 5px;
 }
+
 
 .divImgProduct {
   display: flex;
   align-items: center;
 }
-
+/* 
 @media (max-width: 400px) {
   .conteinerProducts {
     width: 95%;
@@ -181,4 +165,4 @@
     margin-left: 92px;
     position: static;
   }
-}
+} */
