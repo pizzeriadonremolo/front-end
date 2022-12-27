@@ -87,6 +87,16 @@
   display: flex;
   align-items: center;
 }
+
+
+@media (min-width: 370px) {
+  .conteinerData{
+     width: 100%;
+  }
+  .button{
+    grid-template-columns: 55% 45%;
+  }
+}
 /* 
 @media (max-width: 400px) {
   .conteinerProducts {

@@ -26,7 +26,7 @@ export default function Input({ product }) {
     if (i >= 0) {
       setCant(cart[i].cartQuantity);
     }
-  }, [cart]);
+  }, [cart, cant]);
 
   const dispatch = useDispatch();
   const handleChange = (e) => {
