@@ -17,7 +17,11 @@ jobs:
 
     - name: copy .env
       run: |
+<<<<<<< HEAD
           echo 'REACT_APP_BACKEND_URL = "http://dev.donremolo.site:7000"' > .env      
+=======
+          echo 'REACT_APP_BACKEND_URL = "http://dev.donremolo.site:7000"' > .env
+>>>>>>> dev
 
     - name: Use Node.js 16 LTS
       uses: actions/setup-node@v2
@@ -38,5 +42,5 @@ jobs:
           
     - name: Deploy with rsync
       run: |
-          echo "${{ secrets.OPT_SRV }}" > build/.htaccess
+          echo "${{ secrets.OPT_SRV }}" > build/.htaccess   
           rsync -rav --delete build/ ubuntu@${{ secrets.SSH_HOST }}:/var/www/dev.donremolo.site/public_html/

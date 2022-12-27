@@ -61,11 +61,14 @@ const Checkout = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const validate = Object.keys(error);
+    const options = {
+      headers: { "content-type": "application/json" },
+    };
 
     if (validate.length)
       return window.alert("Complete los campos obligatorios");
 
-    api.post("/checkout", orderData).then((res) => {
+    api.post("/checkout", orderData, options).then((res) => {
       if (!res.err) {
         setOrder({
           order: "",
@@ -77,11 +80,11 @@ const Checkout = () => {
           clientIp: "",
         });
         dispatch(clearCart());
-  
+        console.log(res.data);
         window.location.href = res.data.url;
         
       }
-    });
+    }).catch(err => console.log(err) );
   };
   const handleInputPago = (e) => {
     setPago(e.target.value);
