@@ -36,6 +36,7 @@ const Checkout = () => {
       ...orderData,
       [name]: value,
     });
+    
     setError(
       validate({
         ...orderData,
