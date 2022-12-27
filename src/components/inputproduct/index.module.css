@@ -7,14 +7,15 @@
     max-width: 50px;
     margin-top: 12px;
     margin-left: 15px;
+    font-weight: 100px;
     font-family: "Lilita One";
     width: auto;
     height: 35px;
     border: 3px solid var(--font-color-blue);
 }
 .delete {
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 20px;
     border-radius: 100%;
     background-image: url("../../img/Frame\ 17.png");
     background-repeat: no-repeat;
@@ -23,6 +24,13 @@
     border: none;
     position: absolute;
     top: 5px;
-    right: -10px;
+    right: -5px;
     cursor: pointer;
+  }
+
+  @media (min-width: 370px) {
+    .input{
+        max-width: 50px;
+        width: 50px;
+    }
   }
