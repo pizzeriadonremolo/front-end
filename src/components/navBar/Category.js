@@ -1,7 +1,7 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import style from "./index.module.css";
 
-const Category = ({ category }) => {
+const Category = ({ category, imageC }) => {
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -13,7 +13,7 @@ const Category = ({ category }) => {
         }}
         className={style.button}
         style={
-          location.pathname === `/${category}`
+          location.pathname === `/${category.title}`
             ? {
                 backgroundColor: "#5171A5",
                 color: "white",
@@ -21,7 +21,7 @@ const Category = ({ category }) => {
             : null
         }
       >
-        <img src={`/img/${category}.png`} alt={category} />
+        <img src={imageC} alt={category} />
         <p className={style.title}>{category}</p>
       </div>
     </>
