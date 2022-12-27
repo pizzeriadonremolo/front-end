@@ -5,7 +5,7 @@ import Footer from "../components/footer/footer";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { clearCart } from "../features/cartAppSlice.js";
-import api from '../features/httpServer'
+import api from "../features/httpServer";
 
 const Checkout = () => {
   const dispatch = useDispatch();
@@ -29,14 +29,13 @@ const Checkout = () => {
 
   const [pago, setPago] = useState(null);
 
-
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setOrder({
       ...orderData,
       [name]: value,
     });
-    
+
     setError(
       validate({
         ...orderData,
@@ -69,23 +68,25 @@ const Checkout = () => {
     if (validate.length)
       return window.alert("Complete los campos obligatorios");
 
-    api.post("/checkout", orderData, options).then((res) => {
-      if (!res.err) {
-        setOrder({
-          order: "",
-          price: "",
-          address: "",
-          phone: "",
-          name: "",
-          comment: "",
-          clientIp: "",
-        });
-        dispatch(clearCart());
-        console.log(res.data);
-        window.location.href = res.data.url;
-        
-      }
-    }).catch(err => console.log(err) );
+    api
+      .post("/checkout", orderData)
+      .then((res) => {
+        if (!res.err) {
+          setOrder({
+            order: "",
+            price: "",
+            address: "",
+            phone: "",
+            name: "",
+            comment: "",
+            clientIp: "",
+          });
+          dispatch(clearCart());
+          console.log(res.data);
+          window.location.href = res.data.url;
+        }
+      })
+      .catch((err) => console.log(err));
   };
   const handleInputPago = (e) => {
     setPago(e.target.value);
@@ -94,10 +95,10 @@ const Checkout = () => {
   return (
     <>
       <div>
-        <h2 className='subtitle'>Checkout</h2>
+        <h2 className="subtitle">Checkout</h2>
         <ul className={style.lista}>
           {cart.cartItems.map((product) => (
-            <li  className='subtitle' key={product.id}>
+            <li className="subtitle" key={product.id}>
               {product.cartQuantity}-{product.title}: $
               {product.cartQuantity * product.price}
             </li>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import  api  from "../features/httpServer";
+import api from "../features/httpServer";
 import "./view.css";
 import Loader from "../components/loader/loader";
 const View = () => {
@@ -21,8 +21,8 @@ const View = () => {
       <ul className="view-purchase-details">
         {order ? (
           order.order.map((order) => (
-            <li key={order} className="view-purchase-list">
-              {order}
+            <li key={order.id} className="view-purchase-list">
+              {order.title}
             </li>
           ))
         ) : (
