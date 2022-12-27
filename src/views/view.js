@@ -10,7 +10,7 @@ const View = () => {
 
   useEffect(() => {
     api.get(`/checkout/order/${id}`, {}).then((res) => {
-      setOrder(res);
+      setOrder(res.data);
     });
   }, []);
 
