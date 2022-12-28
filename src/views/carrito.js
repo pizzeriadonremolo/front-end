@@ -12,7 +12,9 @@ export default function Carrito() {
     <>
       <div className={style.cartContainer}>
         <div className={style.divCartTile}>
-          <h2 className={style.cartTitle}>Carrito</h2>
+          <h2 className={style.cartTitle}>
+            {cart.cartItems.length === 0 ? "Carrito vacío" : "Carrito"}
+          </h2>
         </div>
         {cart.cartItems.map((producto) => (
           <Products2 product={producto} key={producto.id} />

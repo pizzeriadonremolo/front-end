@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart, removeFromCart, resetTotalAmount } from "../../features/cartAppSlice";
+import {
+  addToCart,
+  removeFromCart,
+  resetTotalAmount,
+} from "../../features/cartAppSlice";
 import style from "./index.module.css";
 
 export default function Input({ product }) {
@@ -45,7 +49,7 @@ export default function Input({ product }) {
           onClick={() => {
             dispatch(removeFromCart(product));
             dispatch(resetTotalAmount());
-            setCant(0)
+            setCant(0);
           }}
         />
       ) : null}
