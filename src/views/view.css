@@ -169,6 +169,7 @@
   height: 64px;
   top: 120vh;
   gap: 10px;
+  margin-top: 150px;
   position: absolute;
   left: 0;
   background: #ffffff;
@@ -218,6 +219,7 @@
 @media (max-width: 912px) {
   .view-purchase-footer {
     top: 96vh;
+    margin-top: 10px;
   }
 
   .div-btn-editar {
@@ -228,6 +230,7 @@
 @media (max-width: 820px) {
   .view-purchase-footer {
     top: 100vh;
+    margin-top: 50px;
   }
 
   .div-btn-editar {
@@ -238,6 +241,7 @@
 @media (max-width: 540px) {
   .view-purchase-footer {
     top: 110vh;
+    margin-top: 200px;
   }
 
   .div-btn-editar {
@@ -248,6 +252,7 @@
 @media (max-width: 414px) {
   .view-purchase-footer {
     top: 98vh;
+    margin-top: 100px;
   }
 
   .div-btn-editar {
