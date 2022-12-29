@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import style from "./index.module.css";
 import { useSelector } from "react-redux";
 import Footer from "../components/footer/footer";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { clearCart } from "../features/cartAppSlice.js";
-import api from '../features/httpServer'
+import api from "../features/httpServer";
 
 const Checkout = () => {
   const dispatch = useDispatch();
@@ -29,14 +29,13 @@ const Checkout = () => {
 
   const [pago, setPago] = useState(null);
 
-
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setOrder({
       ...orderData,
       [name]: value,
     });
-    
+
     setError(
       validate({
         ...orderData,
@@ -47,6 +46,9 @@ const Checkout = () => {
   const validate = (data) => {
     const error = {};
     const regexPhone = /^[0-9]*^[()-]*$/;
+    if (data.phone.length < 10) {
+      error.phone = "Debe ingresar un número válido de 10 dígitos";
+    }
     if (regexPhone.test(data.phone)) {
       error.phone = "numero invalido";
     }
@@ -67,26 +69,31 @@ const Checkout = () => {
     };
 
     if (validate.length)
-      return window.alert("Complete los campos obligatorios");
+      return window.alert(
+        "Complete los campos obligatorios. Número de teléfono 10 dígitos"
+      );
 
-    api.post("/checkout", orderData, options).then((res) => {
-      if (!res.err) {
-        setOrder({
-          order: "",
-          price: "",
-          address: "",
-          phone: "",
-          name: "",
-          comment: "",
-          clientIp: "",
-        });
-        dispatch(clearCart());
-        console.log(res.data);
-        window.location.href = res.data.url;
-        
-      }
-    }).catch(err => console.log(err) );
+    api
+      .post("/checkout", orderData)
+      .then((res) => {
+        if (!res.err) {
+          setOrder({
+            order: "",
+            price: "",
+            address: "",
+            phone: "",
+            name: "",
+            comment: "",
+            clientIp: "",
+          });
+          dispatch(clearCart());
+          console.log(res.data);
+          window.location.href = res.data.url;
+        }
+      })
+      .catch((err) => console.log(err));
   };
+
   const handleInputPago = (e) => {
     setPago(e.target.value);
   };
@@ -94,10 +101,10 @@ const Checkout = () => {
   return (
     <>
       <div>
-        <h2 className='subtitle'>Checkout</h2>
+        <h2 className="subtitle">Checkout</h2>
         <ul className={style.lista}>
           {cart.cartItems.map((product) => (
-            <li  className='subtitle' key={product.id}>
+            <li className="subtitle" key={product.id}>
               {product.cartQuantity}-{product.title}: $
               {product.cartQuantity * product.price}
             </li>
@@ -111,6 +118,7 @@ const Checkout = () => {
             style={error.phone ? { border: "2px solid red" } : null}
             placeholder="Teléfono (obligatorio)*"
             name="phone"
+            required
             value={orderData.phone}
             onChange={handleInputChange}
           />
@@ -122,10 +130,12 @@ const Checkout = () => {
             onChange={handleInputChange}
           />
           <input
+            type="text"
             className={style.inputs}
             style={error.address ? { border: "2px solid red" } : null}
             placeholder="Direccion (obligatorio)*"
             name="address"
+            required
             value={orderData.address}
             onChange={handleInputChange}
           />

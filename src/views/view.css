@@ -24,6 +24,60 @@
   margin-top: 10px;
 }
 
+.div-view-client-data {
+  width: 88%;
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.orden-nro,
+.nombre,
+.address-img,
+.phone {
+  width: 15px;
+  cursor: pointer;
+}
+
+.total-a-pagar {
+  cursor: pointer;
+  width: 20px;
+  margin-right: 15px;
+}
+
+.view-client {
+  color: var(--color);
+  font-weight: 400;
+  font-size: 20px;
+  font-family: var(--font);
+  margin-left: 15px;
+}
+
+.div-view-client-order {
+  width: 88%;
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  justify-content: space-between;
+}
+
+.div-client-view-order-img-title {
+  display: flex;
+  align-items: center;
+}
+
+.div-view-client-order-number {
+  display: flex;
+  align-items: center;
+}
+
+.view-client-order {
+  color: var(--color);
+  font-weight: 400;
+  font-size: 20px;
+  font-family: var(--font);
+}
+
 .view-purchase-details {
   display: flex;
   flex-direction: column;
@@ -35,7 +89,17 @@
   font-family: var(--font);
 }
 
-.view-purchase-list {
+.div-view-purchase-list {
+  width: 100%;
+  max-width: auto;
+  display: flex;
+  justify-content: flex-end;
+  margin-left: 20px;
+}
+
+.view-purchase-list-title,
+.view-purchase-list-price {
+  margin: 0px 15px;
   color: var(--color);
   font-weight: 400;
   font-size: 16px;
@@ -43,12 +107,22 @@
   font-family: var(--font);
 }
 
+.view-purchase-list-title {
+  flex: auto;
+  margin-left: 1px;
+}
+
 .div-view-pay-results {
-  width: 70%;
+  width: 88%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: 10px;
+}
+
+.div-view-pay-total {
+  display: flex;
+  align-items: center;
 }
 
 .view-pay-results {
@@ -68,18 +142,163 @@
   font-family: var(--font);
 }
 
+.div-btn-editar {
+  display: flex;
+  gap: 80px;
+}
+
+.btn-editar-pedido,
+.btn-editar-usuario {
+  cursor: pointer;
+  width: 140px;
+  height: 40px;
+  background-color: var(--color);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  font-weight: 400;
+  font-family: var(--font);
+  font-size: 14px;
+}
+
 .view-purchase-footer {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   height: 64px;
-  top: 100vh;
+  top: 120vh;
   gap: 10px;
+  margin-top: 150px;
   position: absolute;
   left: 0;
   background: #ffffff;
   box-shadow: 4px -2px 10px rgba(0, 0, 0, 0.22);
+}
+
+@media (max-width: 1366px) {
+  .view-purchase-footer {
+    top: 180vh;
+  }
+
+  .div-btn-editar {
+    margin-top: 60px;
+  }
+}
+
+@media (max-width: 1280px) {
+  .view-purchase-footer {
+    top: 120vh;
+  }
+
+  .div-btn-editar {
+    margin-top: 60px;
+  }
+}
+
+@media (max-width: 1150px) {
+  .view-purchase-footer {
+    top: 140vh;
+  }
+
+  .div-btn-editar {
+    margin-top: 60px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .view-purchase-footer {
+    top: 150vh;
+  }
+
+  .div-btn-editar {
+    margin-top: 80px;
+  }
+}
+
+@media (max-width: 912px) {
+  .view-purchase-footer {
+    top: 96vh;
+    margin-top: 10px;
+  }
+
+  .div-btn-editar {
+    margin-top: 80px;
+  }
+}
+
+@media (max-width: 820px) {
+  .view-purchase-footer {
+    top: 100vh;
+    margin-top: 50px;
+  }
+
+  .div-btn-editar {
+    margin-top: 80px;
+  }
+}
+
+@media (max-width: 540px) {
+  .view-purchase-footer {
+    top: 110vh;
+    margin-top: 200px;
+  }
+
+  .div-btn-editar {
+    margin-top: 80px;
+  }
+}
+
+@media (max-width: 414px) {
+  .view-purchase-footer {
+    top: 98vh;
+    margin-top: 100px;
+  }
+
+  .div-btn-editar {
+    margin-top: 80px;
+  }
+}
+
+@media (max-width: 375px) {
+  .view-purchase-footer {
+    top: 115vh;
+  }
+
+  .div-btn-editar {
+    margin-top: 80px;
+  }
+}
+
+@media (max-width: 360px) {
+  .div-view-purchase-list {
+    width: 100%;
+    margin-left: 20px;
+  }
+
+  .view-purchase-list-title,
+  .view-purchase-list-price {
+    margin: 0px;
+  }
+}
+
+@media (max-width: 280px) {
+  .div-view-purchase-list {
+    width: 100%;
+    max-width: 230px;
+  }
+
+  .div-view-purchase-list {
+    margin-left: 10px;
+  }
+
+  .div-btn-editar {
+    gap: 10px;
+  }
+
+  .view-purchase-footer {
+    top: 130vh;
+  }
 }
 
 .view-btn-purchase {
