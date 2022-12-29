@@ -22,7 +22,7 @@ export default function Input({ product }) {
       var max = 24;
       break;
   }
-  const [cant, setCant] = useState(0);
+  const [cant, setCant] = useState();
   const cart = useSelector((state) => state.cart.cartItems);
 
   useEffect(() => {
@@ -36,14 +36,19 @@ export default function Input({ product }) {
   const handleChange = (e) => {
     const value = e.target.value;
     if (value <= max && value > -1) {
-      setCant(e.target.value);
+      const cantOfCategory = cart
+      .map((e) => (e.category === product.category ? e.cartQuantity : null))
+      .reduce((acc, curr) => acc + parseInt(curr), 0);
+
+      if (cantOfCategory >= max + 1 && cant<value) return;
+      setCant(value);
       dispatch(addToCart({ ...product, cartQuantity: value }));
       dispatch(resetTotalAmount());
     }
   };
   return (
     <>
-      {parseInt(cant) !== 0 ? (
+      {!!parseInt(cant) ? (
         <button
           className={style.delete}
           onClick={() => {
