@@ -13,7 +13,7 @@ const Category = ({ category, imageC }) => {
         }}
         className={style.button}
         style={
-          location.pathname === `/${category.title}`
+          location.pathname == `/${category}`
             ? {
                 backgroundColor: "#5171A5",
                 color: "white",

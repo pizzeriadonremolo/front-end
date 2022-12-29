@@ -5,7 +5,6 @@ const initialState = {
   cartTotalAmount: 0,
 };
 
-
 const cartSlice = createSlice({
   name: "cart",
   initialState,
@@ -21,8 +20,6 @@ const cartSlice = createSlice({
       const i = state.cartItems.findIndex((item) => item.id === payload.id);
       if (i < 0 && parseInt(payload.cartQuantity)) {
         state.cartItems.push(payload);
-    
-
       }
       if (i >= 0) {
         if (!parseInt(payload.cartQuantity)) {
@@ -38,7 +35,6 @@ const cartSlice = createSlice({
       }
     },
     removeFromCart(state, action) {
-      console.log('ssada');
       const nextCartItems = state.cartItems.filter(
         (cartItem) => cartItem.id !== action.payload.id
       );
@@ -67,6 +63,11 @@ const cartSlice = createSlice({
     },
   },
 });
-export const { addToCart, removeFromCart, decreaseCart, clearCart , resetTotalAmount} =
-  cartSlice.actions;
+export const {
+  addToCart,
+  removeFromCart,
+  decreaseCart,
+  clearCart,
+  resetTotalAmount,
+} = cartSlice.actions;
 export default cartSlice.reducer;
