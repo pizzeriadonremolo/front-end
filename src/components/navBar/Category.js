@@ -13,7 +13,7 @@ const Category = ({ category, imageC }) => {
         }}
         className={style.button}
         style={
-          location.pathname === `/${category.title}`
+          location.pathname.toLowerCase() === `/${category.title.toLowerCase()}`
             ? {
                 backgroundColor: "#5171A5",
                 color: "white",
