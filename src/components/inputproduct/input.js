@@ -30,17 +30,17 @@ export default function Input({ product }) {
     if (i >= 0) {
       setCant(cart[i].cartQuantity);
     }
-  }, [cart, cant]);
+  }, [cant,cart]);
 
   const dispatch = useDispatch();
   const handleChange = (e) => {
     const value = e.target.value;
     if (value <= max && value > -1) {
       const cantOfCategory = cart
-      .map((e) => (e.category === product.category ? e.cartQuantity : null))
-      .reduce((acc, curr) => acc + parseInt(curr), 0);
+        .map((e) => (e.category === product.category ? e.cartQuantity : null))
+        .reduce((acc, curr) => acc + parseInt(curr), 0);
 
-      if (cantOfCategory >= max + 1 && cant<value) return;
+      if (cantOfCategory >= max && cant < value) return;
       setCant(value);
       dispatch(addToCart({ ...product, cartQuantity: value }));
       dispatch(resetTotalAmount());
