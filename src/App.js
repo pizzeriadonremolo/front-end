@@ -11,23 +11,19 @@ import Carrito from "./views/carrito";
 import View from "./views/view";
 
 function App() {
-  
-
   return (
-    <div >
-      <Logo/>
-
+    <div>
+      <Logo />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/pizzas" element={<Pizzas />} />
-        <Route path="/empanadas" element={<Empanadas />}  />
+        <Route path="/empanadas" element={<Empanadas />} />
         <Route path="/bebidas" element={<Bebidas />} />
         <Route path="/postres" element={<Postres />} />
         <Route path="/carrito" element={<Carrito />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/view/:id" element={<View />} />
       </Routes>
-     
     </div>
   );
 }
