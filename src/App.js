@@ -9,6 +9,7 @@ import Checkout from "./views/Checkout";
 import Logo from "./components/header/header";
 import Carrito from "./views/carrito";
 import View from "./views/view";
+import EditUser from "./views/editUser/EditUser";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/carrito" element={<Carrito />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/view/:id" element={<View />} />
+        <Route path="/editUser/:id" element={<EditUser />} />
       </Routes>
     </div>
   );

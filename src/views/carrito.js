@@ -4,10 +4,22 @@ import Footer from "../components/footer/footer";
 import style from "./index.module.css";
 import { useSelector } from "react-redux";
 import Products2 from "../components/product2/products2";
+import api from "../features/httpServer";
 
 export default function Carrito() {
   const navigate = useNavigate();
   const cart = useSelector((state) => state.cart);
+  const changeOrder = () => {
+    api
+      .put(`/checkout/order/cart/${cart.number}`, cart)
+      .then((res) => {
+        if (!res.err) {
+          console.log(res.data);
+          navigate(`/view/${cart.number}`);
+        }
+      })
+      .catch((err) => console.log(err));
+  };
   return (
     <>
       <div className={style.cartContainer}>
@@ -20,7 +32,11 @@ export default function Carrito() {
           <Products2 product={producto} key={producto.id} />
         ))}
         {cart.cartTotalAmount ? (
-          <Footer to={() => navigate("/checkout")} text={"Pagar"} />
+          cart.change ? (
+            <Footer to={changeOrder} text={"Editar pedido"} />
+          ) : (
+            <Footer to={() => navigate("/checkout")} text={"Pagar"} />
+          )
         ) : (
           <Footer to={() => navigate("/")} text={"Agregar Productos"} />
         )}

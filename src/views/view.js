@@ -1,13 +1,20 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import api from "../features/httpServer";
 import "./view.css";
 import Loader from "../components/loader/loader";
+import { useDispatch } from "react-redux";
+import { changeCart } from "../features/cartAppSlice";
 
 const View = () => {
   const { id } = useParams();
-
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [order, setOrder] = useState(null);
+  const handleEdit = ()=>{
+    dispatch(changeCart(order));
+    navigate('/carrito')
+  }
 
   useEffect(() => {
     api.get(`/checkout/order/${id}`, {}).then((res) => {
@@ -105,11 +112,16 @@ const View = () => {
         </>
       ) : null}
       <div className="div-btn-editar">
-        <button className="btn-editar-pedido">Editar Pedido</button>
-        <button className="btn-editar-usuario">Editar Usuario</button>
+        <button onClick={handleEdit}className="btn-editar-pedido">Editar Pedido</button>
+        <button
+          onClick={() => navigate(`/editUser/${id}`)}
+          className="btn-editar-usuario"
+        >
+          Editar Usuario
+        </button>
       </div>
       <div className="view-purchase-footer">
-        <button className="view-btn-purchase">Finalizar Pedido</button>
+        <button  className="view-btn-purchase">Finalizar Pedido</button>
       </div>
     </div>
   );
