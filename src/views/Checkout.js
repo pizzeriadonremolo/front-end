@@ -7,12 +7,12 @@ import { useDispatch } from "react-redux";
 import { clearCart } from "../features/cartAppSlice.js";
 import api from "../features/httpServer";
 
-const Checkout = () => {
+const Checkout = ({oldOrder}) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const cart = useSelector((state) => state.cart);
 
-  const [orderData, setOrder] = useState({
+  const [orderData, setOrder] = useState(oldOrder ||{
     order: cart.cartItems,
     price: cart.cartTotalAmount,
     address: "",
@@ -22,6 +22,7 @@ const Checkout = () => {
     pago: "",
     clientIp: "",
   });
+
   const [error, setError] = useState({
     address: "",
     phone: "",
@@ -64,16 +65,15 @@ const Checkout = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const validate = Object.keys(error);
-    const options = {
-      headers: { "content-type": "application/json" },
-    };
 
     if (validate.length)
       return window.alert(
         "Complete los campos obligatorios. Número de teléfono 10 dígitos"
       );
 
-    api
+    if(!oldOrder){
+
+      api
       .post("/checkout", orderData)
       .then((res) => {
         if (!res.err) {
@@ -92,6 +92,26 @@ const Checkout = () => {
         }
       })
       .catch((err) => console.log(err));
+    }else{
+      api
+      .put(`/checkout/order/${orderData.number}`, orderData)
+      .then((res) => {
+        if (!res.err) {
+          setOrder({
+            order: "",
+            price: "",
+            address: "",
+            phone: "",
+            name: "",
+            comment: "",
+            clientIp: "",
+          });
+          console.log(res.data);
+          navigate(`/view/${orderData.number}`)
+        }
+      })
+      .catch((err) => console.log(err));
+    }
   };
 
   const handleInputPago = (e) => {
@@ -103,7 +123,7 @@ const Checkout = () => {
       <div>
         <h2 className="subtitle">Checkout</h2>
         <ul className={style.lista}>
-          {cart.cartItems.map((product) => (
+          {orderData.order.map((product) => (
             <li className="subtitle" key={product.id}>
               {product.cartQuantity}-{product.title}: $
               {product.cartQuantity * product.price}
@@ -160,8 +180,8 @@ const Checkout = () => {
             value={orderData.comment}
             onChange={handleInputChange}
           />
-          {cart.cartTotalAmount ? (
-            <Footer to={() => console.log("flama")} text="Pagar" />
+          {cart.cartTotalAmount || oldOrder ? (
+            <Footer to={() =>{}} text="Pagar" />
           ) : (
             <Footer to={() => navigate("/")} text={"Agregar Productos"} />
           )}
