@@ -4,23 +4,36 @@ import api from "../features/httpServer";
 import "./view.css";
 import Loader from "../components/loader/loader";
 import { useDispatch } from "react-redux";
-import { changeCart } from "../features/cartAppSlice";
+import { changeCart, clearCart } from "../features/cartAppSlice";
 
 const View = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [order, setOrder] = useState(null);
-  const handleEdit = ()=>{
+
+  const handleEdit = () => {
     dispatch(changeCart(order));
-    navigate('/carrito')
-  }
+    navigate("/carrito");
+  };
 
   useEffect(() => {
     api.get(`/checkout/order/${id}`, {}).then((res) => {
       setOrder(res.data);
     });
   }, [id]);
+
+  const deleteOrder = () => {
+    api
+      .delete(`/checkout/order/${order.number}`, {})
+      .then((res) => {
+        setOrder(res.data);
+      })
+      .catch((error) => console.log(error));
+    dispatch(clearCart());
+    alert("Pedido eliminado exitosamente");
+    navigate("/");
+  };
 
   return (
     <div className="view-purchase-container">
@@ -112,7 +125,9 @@ const View = () => {
         </>
       ) : null}
       <div className="div-btn-editar">
-        <button onClick={handleEdit}className="btn-editar-pedido">Editar Pedido</button>
+        <button onClick={handleEdit} className="btn-editar-pedido">
+          Editar Pedido
+        </button>
         <button
           onClick={() => navigate(`/editUser/${id}`)}
           className="btn-editar-usuario"
@@ -121,7 +136,9 @@ const View = () => {
         </button>
       </div>
       <div className="view-purchase-footer">
-        <button  className="view-btn-purchase">Finalizar Pedido</button>
+        <button className="view-btn-purchase" onClick={deleteOrder}>
+          Eliminar Pedido
+        </button>
       </div>
     </div>
   );

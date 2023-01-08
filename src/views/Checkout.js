@@ -7,26 +7,25 @@ import { useDispatch } from "react-redux";
 import { clearCart } from "../features/cartAppSlice.js";
 import api from "../features/httpServer";
 
-const Checkout = ({oldOrder}) => {
+const Checkout = ({ oldOrder }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const cart = useSelector((state) => state.cart);
 
-  const [orderData, setOrder] = useState(oldOrder ||{
-    order: cart.cartItems,
-    price: cart.cartTotalAmount,
-    address: "",
-    phone: "",
-    name: "",
-    comment: "",
-    pago: "",
-    clientIp: "",
-  });
+  const [orderData, setOrder] = useState(
+    oldOrder || {
+      order: cart.cartItems,
+      price: cart.cartTotalAmount,
+      address: "",
+      phone: "",
+      name: "",
+      comment: "",
+      pago: "",
+      clientIp: "",
+    }
+  );
 
-  const [error, setError] = useState({
-    address: "",
-    phone: "",
-  });
+  const [error, setError] = useState({});
 
   const [pago, setPago] = useState(null);
 
@@ -59,58 +58,65 @@ const Checkout = ({oldOrder}) => {
     if (pago === "efectivo" && !data.pago) {
       error.pago = "ingrese un monto";
     }
+    if (orderData && data.pago < orderData?.price) {
+      error.pago = `Debe ingresar un monto mayor o igual a ${orderData?.price}`;
+    }
+    if (oldOrder && data.pago < oldOrder?.price) {
+      error.pago = `Debe ingresar un monto mayor o igual a ${oldOrder?.price}`;
+    }
+
     return error;
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const validate = Object.keys(error);
+    console.log(error);
 
     if (validate.length)
       return window.alert(
-        "Complete los campos obligatorios. Número de teléfono 10 dígitos"
+        `Complete los campos obligatorios.\nNúmero de teléfono 10 dígitos\nDebe ingresar un monto mayor o igual a ${orderData.price}`
       );
 
-    if(!oldOrder){
-
+    if (!oldOrder) {
       api
-      .post("/checkout", orderData)
-      .then((res) => {
-        if (!res.err) {
-          setOrder({
-            order: "",
-            price: "",
-            address: "",
-            phone: "",
-            name: "",
-            comment: "",
-            clientIp: "",
-          });
-          dispatch(clearCart());
-          console.log(res.data);
-          window.location.href = res.data.url;
-        }
-      })
-      .catch((err) => console.log(err));
-    }else{
+        .post("/checkout", orderData)
+        .then((res) => {
+          if (!res.err) {
+            setOrder({
+              order: "",
+              price: "",
+              address: "",
+              phone: "",
+              name: "",
+              comment: "",
+              clientIp: "",
+            });
+            dispatch(clearCart());
+            console.log(res.data);
+            window.location.href = res.data.url;
+          }
+        })
+        .catch((err) => console.log(err));
+    } else {
       api
-      .put(`/checkout/order/${orderData.number}`, orderData)
-      .then((res) => {
-        if (!res.err) {
-          setOrder({
-            order: "",
-            price: "",
-            address: "",
-            phone: "",
-            name: "",
-            comment: "",
-            clientIp: "",
-          });
-          console.log(res.data);
-          navigate(`/view/${orderData.number}`)
-        }
-      })
-      .catch((err) => console.log(err));
+        .put(`/checkout/order/${orderData.number}`, orderData)
+        .then((res) => {
+          if (!res.err) {
+            setOrder({
+              order: "",
+              price: "",
+              address: "",
+              phone: "",
+              name: "",
+              comment: "",
+              clientIp: "",
+            });
+            console.log(res.data);
+            navigate(`/view/${orderData.number}`);
+          }
+        })
+        .catch((err) => console.log(err));
     }
   };
 
@@ -165,6 +171,8 @@ const Checkout = ({oldOrder}) => {
           </select>
           {pago === "efectivo" ? (
             <input
+              type="number"
+              title="Debe ingresar un monto mayor o igual al precio"
               className={style.inputs}
               placeholder="Con cuanto abonaras?"
               style={error.pago ? { border: "2px solid red" } : null}
@@ -181,7 +189,7 @@ const Checkout = ({oldOrder}) => {
             onChange={handleInputChange}
           />
           {cart.cartTotalAmount || oldOrder ? (
-            <Footer to={() =>{}} text="Pagar" />
+            <Footer to={() => {}} text="Pagar" />
           ) : (
             <Footer to={() => navigate("/")} text={"Agregar Productos"} />
           )}
