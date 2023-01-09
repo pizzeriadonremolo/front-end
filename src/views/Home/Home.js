@@ -16,7 +16,7 @@ const Home = () => {
     recommended(setPoductos);
     swal({
       title:'warning!',
-      text:'para una menor expericencia de usuario abra la aplicacion desde un celular',
+      text:'para una mejor expericencia de usuario abra la aplicacion desde un celular',
       icon:'warning'
     })
   }, []);
