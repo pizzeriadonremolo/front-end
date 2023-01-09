@@ -73,14 +73,14 @@ const Checkout = ({ oldOrder }) => {
     e.preventDefault();
     const validate = Object.keys(error);
 
-    if (validate.length){
-    const text = Object.values(error)[0];
+    if (validate.length) {
+      const text = Object.values(error)[0];
       return swal({
         title: "Upps!",
         text,
         icon: "error",
       });
-}
+    }
     if (!oldOrder) {
       api
         .post("/checkout", orderData)
@@ -96,7 +96,7 @@ const Checkout = ({ oldOrder }) => {
           });
           swal({
             title: "Orden pedida exitosamente!",
-            text: "",
+            text: "luego de realizar su pedido solo tendra 15 minutos para editar o cancelar el pedido",
             icon: "success",
           }).then(() => {
             dispatch(clearCart());
@@ -154,12 +154,13 @@ const Checkout = ({ oldOrder }) => {
       <div>
         <h2 className="subtitle">Checkout</h2>
         <ul className={style.lista}>
-          {orderData.order && orderData.order.map((product) => (
-            <li className="subtitle" key={product.id}>
-              {product.cartQuantity}-{product.title}: $
-              {product.cartQuantity * product.price}
-            </li>
-          ))}
+          {orderData.order &&
+            orderData.order.map((product) => (
+              <li className="subtitle" key={product.id}>
+                {product.cartQuantity}-{product.title}: $
+                {product.cartQuantity * product.price}
+              </li>
+            ))}
         </ul>
 
         <form onSubmit={handleSubmit}>
