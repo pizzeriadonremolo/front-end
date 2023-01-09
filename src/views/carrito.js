@@ -5,20 +5,32 @@ import style from "./index.module.css";
 import { useSelector } from "react-redux";
 import Products2 from "../components/product2/products2";
 import api from "../features/httpServer";
+import swal from "sweetalert";
 
 export default function Carrito() {
   const navigate = useNavigate();
   const cart = useSelector((state) => state.cart);
   const changeOrder = () => {
     api
-      .put(`/checkout/order/cart/${cart.number}`, cart)
-      .then((res) => {
-        if (!res.err) {
-          console.log(res.data);
-          navigate(`/view/${cart.number}`);
-        }
+      .put(`/checkout/order/cart/${cart.number}`, cart, {
+        headers: { authorization: `bored ${cart.jwt}` },
       })
-      .catch((err) => console.log(err));
+      .then((res) => {
+        swal({
+          title: "Orden editada exitosamente!",
+          text: '',
+          icon: "success",
+        }).then(() => navigate(`/view/${cart.number}`));
+      })
+      .catch((err) =>
+        swal({
+          title: "Upps!",
+          text: err.response.data.error,
+          icon: "error",
+        }).then((res) => {
+          navigate(`/view/${cart.number}`);
+        })
+      );
   };
   return (
     <>

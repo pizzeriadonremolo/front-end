@@ -4,7 +4,8 @@ const initialState = {
   cartItems: [],
   cartTotalAmount: 0,
   change:false,
-  number:null
+  number:null,
+  jwt:null
 };
 
 const cartSlice = createSlice({
@@ -49,6 +50,7 @@ const cartSlice = createSlice({
       state.cartTotalAmount = action.payload.price;
       state.number = action.payload.number;
       state.change=true;
+      state.jwt=action.payload.jwt;
     },
     clearCart(state, action) {
       state.cartItems = [];

@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { clearCart } from "../features/cartAppSlice.js";
 import api from "../features/httpServer";
+import swal from "sweetalert";
 
 const Checkout = ({ oldOrder }) => {
   const dispatch = useDispatch();
@@ -71,52 +72,76 @@ const Checkout = ({ oldOrder }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const validate = Object.keys(error);
-    console.log(error);
 
-    if (validate.length)
-      return window.alert(
-        `Complete los campos obligatorios.\nNúmero de teléfono 10 dígitos\nDebe ingresar un monto mayor o igual a ${orderData.price}`
-      );
-
+    if (validate.length){
+    const text = Object.values(error)[0];
+      return swal({
+        title: "Upps!",
+        text,
+        icon: "error",
+      });
+}
     if (!oldOrder) {
       api
         .post("/checkout", orderData)
         .then((res) => {
-          if (!res.err) {
-            setOrder({
-              order: "",
-              price: "",
-              address: "",
-              phone: "",
-              name: "",
-              comment: "",
-              clientIp: "",
-            });
+          setOrder({
+            order: "",
+            price: "",
+            address: "",
+            phone: "",
+            name: "",
+            comment: "",
+            clientIp: "",
+          });
+          swal({
+            title: "Orden pedida exitosamente!",
+            text: "",
+            icon: "success",
+          }).then(() => {
             dispatch(clearCart());
-            console.log(res.data);
             window.location.href = res.data.url;
-          }
+          });
         })
-        .catch((err) => console.log(err));
+        .catch((err) =>
+          swal({
+            title: "Upps!",
+            text: err.response.data,
+            icon: "error",
+          })
+        );
     } else {
       api
-        .put(`/checkout/order/${orderData.number}`, orderData)
-        .then((res) => {
-          if (!res.err) {
-            setOrder({
-              order: "",
-              price: "",
-              address: "",
-              phone: "",
-              name: "",
-              comment: "",
-              clientIp: "",
-            });
-            console.log(res.data);
-            navigate(`/view/${orderData.number}`);
-          }
+        .put(`/checkout/order/${orderData.number}`, orderData, {
+          headers: { authorization: `bored ${orderData.jwt}` },
         })
-        .catch((err) => console.log(err));
+        .then((res) => {
+          setOrder({
+            order: "",
+            price: "",
+            address: "",
+            phone: "",
+            name: "",
+            comment: "",
+            clientIp: "",
+          });
+        })
+        .then((res) => {
+          swal({
+            title: "Orden editada exitosamente!",
+            text: "",
+            icon: "success",
+          }).then(() => navigate(`/view/${orderData.number}`));
+        })
+        .catch((err) =>
+          swal({
+            title: "Upps!",
+            text: err.response.data.error,
+            icon: "error",
+          }).then((res) => {
+            navigate(`/view/${orderData.number}`);
+          })
+        );
     }
   };
 
@@ -129,7 +154,7 @@ const Checkout = ({ oldOrder }) => {
       <div>
         <h2 className="subtitle">Checkout</h2>
         <ul className={style.lista}>
-          {orderData.order.map((product) => (
+          {orderData.order && orderData.order.map((product) => (
             <li className="subtitle" key={product.id}>
               {product.cartQuantity}-{product.title}: $
               {product.cartQuantity * product.price}

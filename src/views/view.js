@@ -5,6 +5,7 @@ import "./view.css";
 import Loader from "../components/loader/loader";
 import { useDispatch } from "react-redux";
 import { changeCart, clearCart } from "../features/cartAppSlice";
+import swal from "sweetalert";
 
 const View = () => {
   const { id } = useParams();
@@ -18,21 +19,43 @@ const View = () => {
   };
 
   useEffect(() => {
-    api.get(`/checkout/order/${id}`, {}).then((res) => {
-      setOrder(res.data);
-    });
+    api
+      .get(`/checkout/order/${id}`, {})
+      .then((res) => {
+        setOrder(res.data);
+      })
+      .catch( (err)=>
+        swal({
+          title: "Upps!",
+          text: err.response.data.error,
+          icon: "error",
+        }).then(()=> navigate('/'))
+      );
   }, [id]);
 
   const deleteOrder = () => {
     api
-      .delete(`/checkout/order/${order.number}`, {})
-      .then((res) => {
-        setOrder(res.data);
+      .delete(`/checkout/order/${order.number}`, {
+        headers: { authorization: `bored ${order.jwt}` },
       })
-      .catch((error) => console.log(error));
-    dispatch(clearCart());
-    alert("Pedido eliminado exitosamente");
-    navigate("/");
+      .then((res) => {
+        swal({
+          title: "Orden cancelado exitosamente!",
+          text: "",
+          icon: "success",
+        }
+        ).then(() =>  navigate("/"));
+        dispatch(clearCart())
+      })
+      .catch((err) =>
+        swal({
+          title: "Upps!",
+          text: err.response.data.error,
+          icon: "error",
+        }).then((res) => {
+          navigate(`/view/${order.number}`);
+        })
+      );   
   };
 
   return (

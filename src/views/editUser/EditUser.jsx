@@ -12,7 +12,6 @@ const EditUser = () => {
   useEffect(() => {
     api.get(`/checkout/order/${id}`, {}).then((res) => {
       setOrder(res.data);
-      console.log(res.data);
     });
   }, [id]);
 
