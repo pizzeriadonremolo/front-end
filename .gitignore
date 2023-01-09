@@ -5,10 +5,12 @@
 /.pnp
 .pnp.js
 /.github
+.github
+/github
+/workflows
 
 # testing
 /coverage
-
 # production
 /build
 # misc

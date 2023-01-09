@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import swal from "sweetalert";
 import Footer from "../../components/footer/footer.js";
 import Loader from "../../components/loader/loader.js";
 import Navbar from "../../components/navBar/Navbar.js";
@@ -14,11 +13,6 @@ const Home = () => {
   const [productos, setPoductos] = useState(null);
   useEffect(() => {
     recommended(setPoductos);
-    swal({
-      title:'warning!',
-      text:'para una mejor expericencia de usuario abra la aplicacion desde un celular',
-      icon:'warning'
-    })
   }, []);
 
   return (
