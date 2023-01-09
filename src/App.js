@@ -11,6 +11,7 @@ import Carrito from "./views/carrito";
 import View from "./views/view";
 import EditUser from "./views/editUser/EditUser";
 import { useEffect } from "react";
+import swal from "sweetalert";
 
 function App() {
   useEffect(
