@@ -2,6 +2,7 @@ import React from "react";
 import style from "./index.module.css";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../features/cartAppSlice.js";
+import Input from "../inputproduct/input";
 
 const Products = ({ product }) => {
   const dispatch = useDispatch();
@@ -16,13 +17,7 @@ const Products = ({ product }) => {
       <h3 className={style.titleProduct}>{product.title}</h3>
       <div>
       <span className={style.priceProduct}>${product.price}</span>
-        <button
-          onClick={() => {
-            dispatch(addToCart(product));
-          }}
-        >
-          .
-        </button>
+       <Input product={product} />
       </div>
     </div>
   );

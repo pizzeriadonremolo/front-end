@@ -1,5 +1,5 @@
-#QA
-name: Deploy qa site on push
+#-QA-v2
+name: Deploy QA site on push
 on: 
   push:
     branches: 
@@ -38,5 +38,5 @@ jobs:
           
     - name: Deploy with rsync
       run: |
-          echo "${{ secrets.OPT_SRV }}" > build/.htaccess
+          echo "${{ secrets.OPT_SRV }}" > build/.htaccess   
           rsync -rav --delete build/ ubuntu@${{ secrets.SSH_HOST }}:/var/www/qa.donremolo.site/public_html/

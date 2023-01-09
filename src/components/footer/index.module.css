@@ -4,11 +4,9 @@
   /* Auto layout */
 
   display: flex;
-  display: inline;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
 
   position: fixed;
   width: 100%;
@@ -119,4 +117,10 @@ Color Secundario
 
 .footerConteiner button {
   font-size: 20px;
+}
+
+@media (max-width: 280px) {
+  .footerConteiner button {
+    font-size: 16px;
+  }
 }

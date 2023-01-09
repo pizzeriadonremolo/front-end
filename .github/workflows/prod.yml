@@ -37,6 +37,10 @@ jobs:
           ssh-keyscan -H ${{ secrets.SSH_HOST }} > ~/.ssh/known_hosts
           
     - name: Deploy with rsync
+<<<<<<< HEAD
       run: |
           echo "${{ secrets.OPT_SRV }}" > build/.htaccess
           rsync -rav --delete build/ ubuntu@${{ secrets.SSH_HOST }}:/var/www/donremolo.site/public_html/
+=======
+      run: rsync -rav --delete build/ ubuntu@${{ secrets.SSH_HOST }}:/var/www/donremolo.site/public_html/
+>>>>>>> qa

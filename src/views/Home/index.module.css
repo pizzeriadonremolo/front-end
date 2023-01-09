@@ -1,5 +1,13 @@
 .conteiner {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(10em, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 10px;
+}
+
+@media (max-width: 370px){
+  .conteiner {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(12em, 1fr));
+    gap: 10px;
+  }
 }

@@ -3,33 +3,37 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   cartItems: [],
   cartTotalAmount: 0,
+  change:false,
+  number:null,
+  jwt:null
 };
 
 const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    addToCart(state, action) {
-      const itemIndex = state.cartItems.findIndex(
-        (item) => item.id === action.payload.id
-      );
-      if (itemIndex < 0) {
-        const tempProduct = { ...action.payload, cartQuantity: 1 };
-        state.cartItems.push(tempProduct);
-        state.cartTotalAmount += action.payload.price;
-      } else {
-        if (
-          (state.cartItems[itemIndex].category === "Empanadas" &&
-            state.cartItems[itemIndex].cartQuantity <= 24) ||
-          (state.cartItems[itemIndex].category === "Postres" &&
-            state.cartItems[itemIndex].cartQuantity <= 20) ||
-          (state.cartItems[itemIndex].category === "Pizzas" &&
-            state.cartItems[itemIndex].cartQuantity <= 6) ||
-          (state.cartItems[itemIndex].category === "Bebidas" &&
-            state.cartItems[itemIndex].cartQuantity < 8)
-        ) {
-          state.cartItems[itemIndex].cartQuantity += 1;
-          state.cartTotalAmount += action.payload.price;
+    resetTotalAmount(state, payload) {
+      state.cartTotalAmount =
+        state.cartItems.reduce(
+          (acc, curr) => acc + curr.price * curr.cartQuantity,
+          0
+        ) || 0;
+    },
+    addToCart(state, { payload }) {
+      const i = state.cartItems.findIndex((item) => item.id === payload.id);
+      if (i < 0 && parseInt(payload.cartQuantity)) {
+        state.cartItems.push(payload);
+      }
+      if (i >= 0) {
+        if (!parseInt(payload.cartQuantity)) {
+          const nextCartItems = state.cartItems.filter(
+            (cartItem) => cartItem.id !== payload.id
+          );
+          state.cartTotalAmount -= payload.price;
+          state.cartItems = nextCartItems;
+        } else {
+          state.cartItems[i].cartQuantity = payload.cartQuantity;
+          state.cartTotalAmount = payload.price * payload.cartQuantity;
         }
       }
     },
@@ -41,20 +45,12 @@ const cartSlice = createSlice({
       state.cartTotalAmount -=
         action.payload.price * action.payload.cartQuantity;
     },
-    decreaseCart(state, action) {
-      const itemIndex = state.cartItems.findIndex(
-        (cartItem) => cartItem.id === action.payload.id
-      );
-      if (state.cartItems[itemIndex].cartQuantity > 1) {
-        state.cartItems[itemIndex].cartQuantity -= 1;
-        state.cartTotalAmount -= action.payload.price;
-      } else if (state.cartItems[itemIndex].cartQuantity === 1) {
-        const nextCartItems = state.cartItems.filter(
-          (cartItem) => cartItem.id !== action.payload.id
-        );
-        state.cartItems = nextCartItems;
-        state.cartTotalAmount -= action.payload.price;
-      }
+    changeCart(state, action) {
+      state.cartItems = action.payload.order;
+      state.cartTotalAmount = action.payload.price;
+      state.number = action.payload.number;
+      state.change=true;
+      state.jwt=action.payload.jwt;
     },
     clearCart(state, action) {
       state.cartItems = [];
@@ -62,6 +58,11 @@ const cartSlice = createSlice({
     },
   },
 });
-export const { addToCart, removeFromCart, decreaseCart, clearCart } =
-  cartSlice.actions;
+export const {
+  addToCart,
+  removeFromCart,
+  changeCart,
+  clearCart,
+  resetTotalAmount,
+} = cartSlice.actions;
 export default cartSlice.reducer;
