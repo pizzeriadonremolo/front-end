@@ -24,14 +24,14 @@ const View = () => {
       .then((res) => {
         setOrder(res.data);
       })
-      .catch( (err)=>
+      .catch((err) =>
         swal({
           title: "Upps!",
           text: err.response.data.error,
           icon: "error",
-        }).then(()=> navigate('/'))
+        }).then(() => navigate("/"))
       );
-  }, [id]);
+  }, [id, navigate]);
 
   const deleteOrder = () => {
     api
@@ -43,9 +43,8 @@ const View = () => {
           title: "Orden cancelado exitosamente!",
           text: "",
           icon: "success",
-        }
-        ).then(() =>  navigate("/"));
-        dispatch(clearCart())
+        }).then(() => navigate("/"));
+        dispatch(clearCart());
       })
       .catch((err) =>
         swal({
@@ -55,7 +54,7 @@ const View = () => {
         }).then((res) => {
           navigate(`/view/${order.number}`);
         })
-      );   
+      );
   };
 
   return (

@@ -1,12 +1,10 @@
-
-.container{
+.container {
   width: 100%;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
 }
 .title {
-  display: relative;
   text-align: center;
   font-family: "Lilita One";
   font-style: normal;
@@ -14,9 +12,8 @@
   font-size: 17px;
   padding-bottom: 15px;
   margin-bottom: 12px;
-
 }
-.button{
+.button {
   background: #ffffff;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 100px;
@@ -27,18 +24,17 @@
   color: var(--font-color-blue);
   align-items: center;
 }
-.button img{
-  width:100%;
+.button img {
+  width: 100%;
 }
 
-
 @media (max-width: 370px) {
-  .button{
+  .button {
     width: 4.5em;
     height: 6em;
     padding-bottom: 0;
   }
-  .title{
+  .title {
     visibility: hidden;
   }
 }

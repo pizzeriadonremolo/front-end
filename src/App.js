@@ -14,15 +14,13 @@ import { useEffect } from "react";
 import swal from "sweetalert";
 
 function App() {
-  useEffect(
-    () =>
-      swal({
-        title: "warning!",
-        text: "para una mejor expericencia de usuario abra la aplicacion desde un celular",
-        icon: "warning",
-      }),
-    []
-  );
+  useEffect(() => {
+    swal({
+      title: "warning!",
+      text: "para una mejor expericencia de usuario abra la aplicacion desde un celular",
+      icon: "warning",
+    });
+  }, []);
   return (
     <div>
       <Logo />
