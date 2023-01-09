@@ -10,8 +10,19 @@ import Logo from "./components/header/header";
 import Carrito from "./views/carrito";
 import View from "./views/view";
 import EditUser from "./views/editUser/EditUser";
+import { useEffect } from "react";
+import swal from "sweetalert";
 
 function App() {
+  useEffect(
+    () =>
+      swal({
+        title: "warning!",
+        text: "para una mejor expericencia de usuario abra la aplicacion desde un celular",
+        icon: "warning",
+      }),
+    []
+  );
   return (
     <div>
       <Logo />
