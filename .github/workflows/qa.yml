@@ -17,7 +17,7 @@ jobs:
 
     - name: copy .env
       run: |
-          echo 'REACT_APP_BACKEND_URL = "http://qa.donremolo.site:8000"' > .env
+          echo 'REACT_APP_BACKEND_URL = "https://qa.donremolo.site:8000"' > .env
 
     - name: Use Node.js 16 LTS
       uses: actions/setup-node@v2
