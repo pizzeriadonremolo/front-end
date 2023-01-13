@@ -40,7 +40,7 @@ const View = () => {
       })
       .then((res) => {
         swal({
-          title: "Orden cancelado exitosamente!",
+          title: "Orden cancelada exitosamente!",
           text: "",
           icon: "success",
         }).then(() => navigate("/"));
